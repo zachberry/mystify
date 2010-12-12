@@ -1,0 +1,39 @@
+body
+{
+	background-color: black;
+	color: #262626;
+	font-family: 'Lucida Grande', 'Verdana', 'Arial', sans-serif;
+	font-weight: bold;
+	font-size: 8pt;
+	margin: 0;
+	padding: 0;
+}
+
+#screen
+{
+
+}
+
+#canvas
+{
+/*	border: thin solid white;*/
+}
+
+#footer
+{
+	height: 20px;
+	width: 100%;
+}
+
+#credits
+{
+	float: left;
+	margin-left: 10px;
+}
+
+#close
+{
+	float: right;
+	height: 20px;
+	margin-right: 10px;
+}

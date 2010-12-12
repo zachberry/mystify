@@ -1,4 +1,4 @@
-var INTERVAL_TIME = 45;
+var INTERVAL_TIME = 20;
 var NUM_TRAILS = 15;
 var NUM_POINTS = 4;
 var NUM_POLYGONS = 2;
@@ -61,6 +61,9 @@ function init()
 
 function step()
 {
+	var d = new Date();
+	var t2;
+	var t1 = d.getTime();
 	//numSteps++;
 	
 //	console.log('step');
@@ -81,8 +84,8 @@ function step()
 		polygonsList[i].render(context);
 	}
 	
-	var img = context.getImageData(200, 200, 200, 200);
-	document.getElementById('canvas2').getContext('2d').putImageData(img, 0, 0);
+	//var img = context.getImageData(200, 200, 200, 200);
+	//document.getElementById('canvas2').getContext('2d').putImageData(img, 0, 0);
 	
 	if(numSteps > 10)
 	{
@@ -90,5 +93,9 @@ function step()
 		//context.clearRect(0, 0, 500, 500);
 		//renderPointList(pointLists[0]);
 	}
+	
+	d = new Date();
+	t2 = d.getTime();
+//	console.log(t2 - t1);
 }
 

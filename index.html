@@ -15,10 +15,55 @@
 		<div id="footer">
 			<div id="credits">
 				<!--a jacob+keegan+nick+zach production, created with &lt;canvas&gt;+js+css+html-->
-				mystify: [about], [settings]
+				mystify: <a href="javascript:toggleAbout();">[about]</a>, <a href="javascript:doit();">[settings]</a>
 			</div>
 			<div id="close">
-				[x]
+				<a href="javascript:hideFooter();">[x]</a>
+			</div>
+		</div>
+		<!--absolutes-->
+		<div id="about">
+			<div id="window-text">
+				<h1>
+					mystify your mind:
+				</h1>
+				<p>
+					created by <a target="_blank" href="http://www.twitter.com/keegan">@keegan</a>, <a target="_blank" href="http://www.twitter.com/rebe01">@rebe01</a>, <a target="_blank" href="http://www.twitter.com/zachberry">@zachberry</a> and nick! uses html canvas, css and js + jquery.
+				</p>
+				<p>
+					<a target="_blank" href="#">source (github)</a>
+				</p>
+			</div>
+			<div id="window-close">
+				<a href="javascript:toggleAbout();">close</a>
+			</div>
+		</div>
+		<div id="about">
+			<div id="window-text">
+				<h1>
+					settings:
+				</h1>
+				<p>
+					redraw: slowly ---- often
+				</p>
+				<p style="font-size: 7pt; margin-top: -8px; text-shadow:none;">
+					too often may cause slow down
+				</p>
+				<p>
+					# shapes: 1 ----- 40
+				</p>
+				<p>
+					# trails: 0 ----- 100
+				</p>
+				<p>
+					# lines: 1 ----- 50
+				</p>
+				<p>
+					color change: fast ------- slow
+				</p>
+			</div>
+			<div id="window-close">
+				<a href="javascript:toggleAbout();">close</a>
 			</div>
 		</div>
 	</body>

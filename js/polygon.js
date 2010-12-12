@@ -1,12 +1,13 @@
-function Polygon(canvasWidth, canvasHeight, numTrails, numPoints, saturation, brightness)
+function Polygon(canvasWidth, canvasHeight, numTrails, numPoints, saturation, brightness, colorTweenInterval)
 {
 	this._canvasWidth = canvasHeight;
 	this._canvasHeight = canvasWidth;
 	this._curHue = this.getRand(360);
 	this._saturation = saturation;
 	this._brightness = brightness;
+	this._colorTweenInterval = colorTweenInterval;
+	this._curColorTweenInterval = 0;
 	this.seedHue();
-	console.log(this._color);
 	this._numTrails = numTrails;
 	this._numPoints = numPoints;
 	this._curPointListIndex = 0;
@@ -36,24 +37,29 @@ Polygon.prototype.render = function(context)
 {
 	//console.log('render');
 	
+	
 	this._context = context;
 	
-	if(this._curHue == this._targetHue)
+	this._curColorTweenInterval = (this._curColorTweenInterval + 1) % this._colorTweenInterval;
+	if(this._curColorTweenInterval == 0)
 	{
-		this.seedHue();
-	}
-	else
-	{
-		this._curHue += this._hueDirection;
-	}
+		if(this._curHue == this._targetHue)
+		{
+			this.seedHue();
+		}
+		else
+		{
+			this._curHue += this._hueDirection;
+		}
 	
-	if(this._curHue > 360)
-	{
-		this._curHue -= 360;
-	}
-	if(this._curHue < 0)
-	{
-		this._curHue += 360;
+		if(this._curHue > 360)
+		{
+			this._curHue -= 360;
+		}
+		if(this._curHue < 0)
+		{
+			this._curHue += 360;
+		}
 	}
 	
 //	for(var i = 0; i < this._numTrails; i++)
@@ -229,6 +235,7 @@ Polygon.prototype.renderPointList = function(pointList, color, lineWidth)
 		
 		this._context.closePath();
 		this._context.stroke();
+		
 	}
 }
 

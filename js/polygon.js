@@ -33,13 +33,8 @@ Polygon.prototype.seedHue = function()
 	this._hueDirection = this.getRand(1) == 0 ? -1 : 1;
 }
 
-Polygon.prototype.render = function(context)
+Polygon.prototype.update = function()
 {
-	//console.log('render');
-	
-	
-	this._context = context;
-	
 	this._curColorTweenInterval = (this._curColorTweenInterval + 1) % this._colorTweenInterval;
 	if(this._curColorTweenInterval == 0)
 	{
@@ -75,6 +70,16 @@ Polygon.prototype.render = function(context)
 	this._curPointListIndex = (this._curPointListIndex + 1) % this._numTrails;
 	this.updatePointList();
 	
+	
+	
+}
+
+Polygon.prototype.render = function(context)
+{
+	//console.log('render');
+	
+	
+	this._context = context;
 	
 	
 	var colorStr = this.getColorString();

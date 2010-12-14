@@ -3,32 +3,34 @@
 	<head>
 		<title>Mystify Your Mind</title>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/polygon.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 		<link rel="stylesheet" type="text/css" href="assets/css/screen.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/themes/ui-darkness/jquery-ui.css" media="screen" />
 	</head>
 	<body>
 		<div id="screen">
-			<canvas width="700" height="500" id="canvas">
+			<canvas id="canvas">
 			</canvas>
 		</div>
+		<!--absolutes-->
 		<div id="footer">
 			<div id="credits">
 				<!--a jacob+keegan+nick+zach production, created with &lt;canvas&gt;+js+css+html-->
-				mystify: <a href="javascript:toggleAbout();">[about]</a>, <a href="javascript:doit();">[settings]</a>
+				mystify: <a href="javascript:toggleAbout();">[about]</a>, <a href="javascript:toggleSettings();">[settings]</a>
 			</div>
 			<div id="close">
-				<a href="javascript:hideFooter();">[x]</a>
+				<a href="javascript:toggleFooter();">[X]</a>
 			</div>
 		</div>
-		<!--absolutes-->
-		<div id="about">
-			<div id="window-text">
+		<div class="window" id="about">
+			<div id="about-content">
 				<h1>
 					mystify your mind:
 				</h1>
 				<p>
-					created by <a target="_blank" href="http://www.twitter.com/keegan">@keegan</a>, <a target="_blank" href="http://www.twitter.com/rebe01">@rebe01</a>, <a target="_blank" href="http://www.twitter.com/zachberry">@zachberry</a> and nick! uses html canvas, css and js + jquery.
+					created by <a target="_blank" href="http://www.twitter.com/keegan">@keegan</a>, <a target="_blank" href="http://www.twitter.com/rebe01">@rebe01</a>, <a target="_blank" href="http://www.twitter.com/zachberry">@zachberry</a> and nick! uses &lt;canvas&gt;, css and js, jquery & jquery ui.
 				</p>
 				<p>
 					<a target="_blank" href="#">source (github)</a>
@@ -38,32 +40,55 @@
 				<a href="javascript:toggleAbout();">close</a>
 			</div>
 		</div>
-		<div id="about">
-			<div id="window-text">
+		<div class="window" id="settings">
+			<div id="settings-content">
 				<h1>
 					settings:
 				</h1>
-				<p>
-					redraw: slowly ---- often
-				</p>
-				<p style="font-size: 7pt; margin-top: -8px; text-shadow:none;">
-					too often may cause slow down
-				</p>
-				<p>
-					# shapes: 1 ----- 40
-				</p>
-				<p>
-					# trails: 0 ----- 100
-				</p>
-				<p>
-					# lines: 1 ----- 50
-				</p>
-				<p>
-					color change: fast ------- slow
-				</p>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier">redraw delay:</div><div class="setting-value" id="slider-redraw-val">45</div>
+				</div>
+				<div id="slider-redraw"></div>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier"># polygons:</div><div class="setting-value" id="slider-shapes-val">45</div>
+				</div>
+				<div id="slider-shapes"></div>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier"># trails per polygon:</div><div class="setting-value" id="slider-trails-val">45</div>
+				</div>
+				<div id="slider-trails"></div>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier"># corners per polygon:</div><div class="setting-value" id="slider-lines-val">45</div>
+				</div>
+				<div id="slider-lines"></div>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier">saturation:</div><div class="setting-value" id="slider-sat-val">45</div>
+				</div>
+				<div id="slider-sat"></div>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier">brightness:</div><div class="setting-value" id="slider-bright-val">45</div>
+				</div>
+				<div id="slider-bright"></div>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier">hue change rate:</div><div class="setting-value" id="slider-color-val">45</div>
+				</div>
+				<div id="slider-color"></div>
+				
+				<div class="setting-lbl">
+					<div class="setting-identifier">hue change amount:</div><div class="setting-value" id="slider-hue-val">45</div>
+				</div>
+				<div id="slider-hue"></div>
+				
 			</div>
 			<div id="window-close">
-				<a href="javascript:toggleAbout();">close</a>
+				<a href="javascript:toggleSettings();">close</a>
 			</div>
 		</div>
 	</body>

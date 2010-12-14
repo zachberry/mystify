@@ -1,13 +1,9 @@
-function Polygon(canvasWidth, canvasHeight, numTrails, numPoints, saturation, brightness, colorTweenInterval)
+function Polygon(canvasWidth, canvasHeight, numTrails, numPoints, saturation, brightness, colorTweenInterval, colorHueIncrement)
 {
-	this._canvasWidth = canvasHeight;
-	this._canvasHeight = canvasWidth;
+	this._canvasWidth = canvasWidth;
+	this._canvasHeight = canvasHeight;
 	this._curHue = this.getRand(360);
-	this._saturation = saturation;
-	this._brightness = brightness;
-	this._colorTweenInterval = colorTweenInterval;
-	this._curColorTweenInterval = 0;
-	this.seedHue();
+	this.setColorOptions(saturation, brightness, colorTweenInterval, colorHueIncrement);
 	this._numTrails = numTrails;
 	this._numPoints = numPoints;
 	this._curPointListIndex = 0;
@@ -22,6 +18,16 @@ function Polygon(canvasWidth, canvasHeight, numTrails, numPoints, saturation, br
 		this.copyPointList(this._pointList, dest);
 		this._trailsList.push(dest);
 	}
+}
+
+Polygon.prototype.setColorOptions = function(saturation, brightness, colorTweenInterval, colorHueIncrement)
+{
+	this._saturation = saturation;
+	this._brightness = brightness;
+	this._colorTweenInterval = colorTweenInterval;
+	this._curColorTweenInterval = 0;
+	this._colorHueIncrement = colorHueIncrement;
+	this.seedHue();
 }
 
 Polygon.prototype.seedHue = function()
@@ -41,7 +47,7 @@ Polygon.prototype.update = function()
 		}
 		else
 		{
-			this._curHue += this._hueDirection;
+			this._curHue += this._hueDirection * this._colorHueIncrement;
 		}
 	
 		if(this._curHue > 360)
@@ -54,8 +60,11 @@ Polygon.prototype.update = function()
 		}
 	}
 	
-	this.overwritePointList(this._pointList, this._trailsList[this._curPointListIndex]);
-	this._curPointListIndex = (this._curPointListIndex + 1) % this._numTrails;
+	if(this._trailsList.length > 0)
+	{
+		this.overwritePointList(this._pointList, this._trailsList[this._curPointListIndex]);
+		this._curPointListIndex = (this._curPointListIndex + 1) % this._numTrails;
+	}
 	this.updatePointList();
 }
 
@@ -84,7 +93,6 @@ Polygon.prototype.getRand = function(highest)
 Polygon.prototype.makePointList = function()
 {
 	var pointList = [];
-	
 	for(var i = 0; i < this._numPoints; i++)
 	{
 		pointList.push(this.makePoint(this.getRand(this._canvasWidth), this.getRand(this._canvasHeight), 10, this.getRand(360)));

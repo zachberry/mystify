@@ -32,10 +32,14 @@ a
 	height: 20px;
 	width: 100%;
 	background-color: #090909;
-	/*background-color: #990000;*/
+	
 	
 	margin: 0;
 	padding: 0;
+	position: absolute;
+	opacity: .7;
+	top: 0;
+	left: 0;
 }
 
 #credits
@@ -53,7 +57,7 @@ a
 	margin-right: 10px;
 }
 
-#about
+.window
 {
 	position: absolute;
 	left: 0;
@@ -63,23 +67,42 @@ a
 	color: #666666;
 	text-shadow: #000000 0px 1px 1px;
 	width: 300px;
-	height: 150px;
 	display: none;
 	font-weight: normal;
-	
+	opacity: .95;
 	-webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.7);
 }
 
-#window-text
+#about
+{
+	height: 150px;
+}
+
+#settings
+{
+	height: 420px;
+}
+
+#about-content
 {
 	height: 120px;
 }
 
-#about h1
+#settings-content
 {
-	font-size: 10pt;
+	height: 380px;
+	margin-bottom: 10px;
 }
 
+#about h1
+{
+	font-size: 12pt;
+}
+
+#settings h1
+{
+	font-size: 12pt;
+}
 
 #window-close
 {
@@ -104,4 +127,38 @@ a
 {
 	background-color: #666666;
 	border: thin solid #666666;
+}
+
+#slider
+{
+	width: 200px;
+}
+
+.setting-lbl
+{
+	float: left;
+	width: 300px;
+	font-weight: bold;
+	height: 20px;
+}
+
+.setting-identifier
+{
+	float: left;
+}
+
+.setting-value
+{
+	float: left;
+	color: orange;
+	margin-left: 1em;
+}
+
+/*from JQuery UI*/
+.ui-slider
+{
+	width: 290px;
+	float: left;
+	margin-bottom: 10px;
+	margin-left: 5px;
 }

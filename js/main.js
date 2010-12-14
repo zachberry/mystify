@@ -12,7 +12,6 @@ var context;
 var curPointListIndex = 0;
 var pointLists = [];
 
-
 var numSteps = 0;
 var intervalID = -1;
 var renderStep;
@@ -24,27 +23,17 @@ var canvasHeight;
 
 var debug_totalTime = 0;
 
-//import polygon.js;
-
-//document.write('<script type="text/javascript" src="js/polygon.js"></script>');
-
-
 function toggleAbout()
 {
 	$('#about').toggle();
 }
 
 $(document).ready(init);
-//init:
+
 function doit()
 {
-	//console.log('test');
-//	NUM_TRAILS = 25;
-	//NUM_POINTS = 8;
-	//NUM_POLYGONS = 3;
 	INTERVAL_TIME = 80;
 	init();
-	
 }
 
 function hideFooter()
@@ -58,8 +47,7 @@ function hideFooter()
 function resize()
 {
 	canvas.width = canvasWidth = $(window).width();
-	canvas.height = canvasHeight = $(window).height() - $('#footer').height(); //@TODO
-	//$('#footer').width(10);
+	canvas.height = canvasHeight = $(window).height() - $('#footer').height();
 	
 	var s = $('#screen');
 	var w = $('#about');
@@ -84,17 +72,13 @@ function init()
 	
 	intervalID = setInterval(step, INTERVAL_TIME / 2);
 	
-	
 	canvas = document.getElementById('canvas');
-	//console.log(canvas);
 	context = canvas.getContext('2d');
-	
 	
 	resize();
 	
 	canvasWidth = canvas.width;
 	canvasHeight = canvas.height;
-	//console.log(canvasWidth);
 	
 	for(var i = 0; i < NUM_POLYGONS; i++)
 	{
@@ -106,50 +90,23 @@ function init()
 
 function step()
 {
-	/*
-	var d = new Date();
-	var t2;
-	var t1 = d.getTime();
-	numSteps++;*/
-	
 	if(renderStep)
 	{
-	//	console.log('render');
-
-	
-		context.clearRect(0, 0, canvasWidth, canvasWidth);
+		context.clearRect(0, 0, canvasWidth, canvasHeight);
 		canvas.width = canvasWidth;
 		
 		for(var i = 0; i < NUM_POLYGONS; i++)
 		{
-			//console.log(polygonsList[i]);
 			polygonsList[i].render(context);
 		}
-
 	}
 	else
 	{
-		//console.log('update');
 		for(var i = 0; i < NUM_POLYGONS; i++)
 		{
-			//console.log(polygonsList[i]);
 			polygonsList[i].update();
 		}
 	}
 	
 	renderStep = !renderStep;
-	/*
-	d = new Date();
-	t2 = d.getTime();
-	var r = t2 - t1;
-	//console.log(renderStep + ':' + (r));
-	
-	debug_totalTime += r;
-	*/
-	if(numSteps > 1000)
-	{
-		clearInterval(intervalID);
-		console.log(debug_totalTime / numSteps);
-	}
 }
-

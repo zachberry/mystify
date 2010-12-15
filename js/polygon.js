@@ -1,3 +1,6 @@
+/**
+ * @constructor
+ */
 function Polygon(canvasWidth, canvasHeight, numTrails, numPoints, saturation, brightness, colorTweenInterval, colorHueIncrement)
 {
 	this._canvasWidth = canvasWidth;

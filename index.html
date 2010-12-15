@@ -4,12 +4,15 @@
 		<title>Mystify Your Mind</title>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="js/polygon.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/polygon.min.js"></script>
+		<script type="text/javascript" src="js/main.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="assets/css/screen.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/themes/ui-darkness/jquery-ui.css" media="screen" />
 	</head>
 	<body>
+		<!--[if lte IE 8]>
+			<div style="color:gray;padding:10px;background-color:white;">Sorry, Internet Explorer version 8 or below is not supported as it does not support the canvas tag. Please view in another browser (<a href="http://www.beautyoftheweb.com/">IE9 Beta</a>, <a href="http://www.google.com/chrome/">Google Chrome</a>, <a href="http://www.mozilla.com/firefox/">Firefox</a>, <a href="http://www.apple.com/safari/download/">Safari</a>).</div>
+		<![endif]-->
 		<div id="screen">
 			<canvas id="canvas">
 			</canvas>
@@ -29,13 +32,13 @@
 					mystify your mind:
 				</h1>
 				<p>
-					lovingly recreated by nick, <a target="_blank" href="http://www.twitter.com/zachberry">@zachberry</a>, <a target="_blank" href="http://www.twitter.com/rebe01">@rebe01</a> and <a target="_blank" href="http://www.twitter.com/keegan">@keegan</a>. uses &lt;canvas&gt;, css, js, jquery & jquery ui.
+					lovingly recreated by <a href="http://twitter.com/nbirnbau">@nbirnbau</a>, <a target="_blank" href="http://www.twitter.com/zachberry">@zachberry</a>, <a target="_blank" href="http://www.twitter.com/rebe01">@rebe01</a> and <a target="_blank" href="http://www.twitter.com/keegan">@keegan</a>. uses &lt;canvas&gt;, css, js, jquery & jquery ui.
 				</p>
 				<p>
 					<a target="_blank" href="#">source (github)</a>
 				</p>
 			</div>
-			<div id="window-close">
+			<div class="window-close">
 				<a href="javascript:toggleAbout();">close</a>
 			</div>
 		</div>
@@ -86,7 +89,7 @@
 				<div id="slider-hue"></div>
 				
 			</div>
-			<div id="window-close">
+			<div class="window-close">
 				<a href="javascript:toggleSettings();">close</a>
 			</div>
 		</div>

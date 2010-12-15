@@ -41,13 +41,13 @@ function createSliders()
 	if($('#slider-redraw').html() == '')
 	{
 		$('#slider-redraw').slider({
-			value: 302 - INTERVAL_TIME,
-			min: 2,
-			max: 302,
+			value: 300 - INTERVAL_TIME,
+			min: 0,
+			max: 300,
 			step: 10,
 			slide: function(event, ui)
 			{
-				INTERVAL_TIME = 302 - ui.value;
+				INTERVAL_TIME = 300 - ui.value;
 				initInterval();
 				updateSettingsLabels();
 			}
@@ -263,7 +263,7 @@ function updateSettingsLabels()
 	$('#slider-sat-val').html(SATURATION + '%');
 	$('#slider-bright-val').html(BRIGHTNESS + '%');
 	$('#slider-color-val').html('every ' + COLOR_TWEEN_INTERVAL + ' frame' + (COLOR_TWEEN_INTERVAL == 1 ? '' : 's'));
-	$('#slider-hue-val').html(COLOR_HUE_INCREMENT + '&deg;');
+	$('#slider-hue-val').html(COLOR_HUE_INCREMENT + ' degrees');
 }
 
 function step()

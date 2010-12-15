@@ -1,4 +1,4 @@
-var INTERVAL_TIME = 42;
+var INTERVAL_TIME = 40;
 var NUM_TRAILS = 14;
 var NUM_POINTS = 4;
 var NUM_POLYGONS = 2;
@@ -41,13 +41,13 @@ function createSliders()
 	if($('#slider-redraw').html() == '')
 	{
 		$('#slider-redraw').slider({
-			value: 300 - INTERVAL_TIME,
+			value: INTERVAL_TIME,
 			min: 0,
 			max: 300,
 			step: 10,
 			slide: function(event, ui)
 			{
-				INTERVAL_TIME = 300 - ui.value;
+				INTERVAL_TIME = ui.value;
 				initInterval();
 				updateSettingsLabels();
 			}

@@ -98,7 +98,7 @@ Polygon.prototype.makePointList = function()
 	var pointList = [];
 	for(var i = 0; i < this._numPoints; i++)
 	{
-		pointList.push(this.makePoint(this.getRand(this._canvasWidth), this.getRand(this._canvasHeight), 10, this.getRand(360)));
+		pointList.push(this.makePoint(this.getRand(this._canvasWidth), this.getRand(this._canvasHeight), 10, this.getRand(2 * Math.PI)));
 	}
 	
 	return pointList;

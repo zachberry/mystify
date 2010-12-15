@@ -142,7 +142,7 @@ a
 	text-align: center;
 }
 
-#window-close a
+.window-close a
 {
 	background-color: #555555;
 	padding: 3px;
@@ -156,7 +156,7 @@ a
 	color: #222222;
 }
 
-#window-close a:hover
+.window-close a:hover
 {
 	background-color: #666666;
 	border: thin solid #666666;

@@ -160,15 +160,13 @@ function toggleFooter()
 	
 	if(!f.is(':visible'))
 	{
-		console.log('show');
-		
 		f.slideDown();
+		localStorage.setItem("header-visible", 'true');
 	}
 	else
 	{
-		console.log('hide');
-		
 		f.slideUp();
+		localStorage.setItem("header-visible", 'false');
 	}
 }
 
@@ -195,11 +193,16 @@ function resizeWindows()
 
 function init()
 {
-	$('#about').draggable();
-	$('#settings').draggable();
+	//$('#about').draggable();
+	//$('#settings').draggable();
 	$('#canvas').click(function() {
 		toggleFooter();
 	});
+	
+	if(window.localStorage.getItem("header-visible") === 'true')
+	{
+		$('#footer').show();
+	}
 	
 	start();
 }

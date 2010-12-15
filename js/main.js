@@ -61,7 +61,7 @@ function createSliders()
 			slide: function(event, ui)
 			{
 				NUM_POLYGONS = ui.value;
-				init();
+				start();
 				updateSettingsLabels();
 			}
 		});
@@ -74,7 +74,7 @@ function createSliders()
 			slide: function(event, ui)
 			{
 				NUM_TRAILS = ui.value;
-				init();
+				start();
 				updateSettingsLabels();
 			}
 		});
@@ -87,7 +87,7 @@ function createSliders()
 			slide: function(event, ui)
 			{
 				NUM_POINTS = ui.value;
-				init();
+				start();
 				updateSettingsLabels();
 			}
 		});
@@ -166,6 +166,8 @@ function toggleFooter()
 	}
 	else
 	{
+		console.log('hide');
+		
 		f.slideUp();
 	}
 }
@@ -198,6 +200,12 @@ function init()
 	$('#canvas').click(function() {
 		toggleFooter();
 	});
+	
+	start();
+}
+
+function start()
+{
 	
 	curPointListIndex = 0;
 	pointLists = [];
